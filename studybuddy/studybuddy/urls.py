@@ -17,8 +17,13 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
+def dummy(request):
+    return HttpResponse("Dummy page")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', include('base.urls'))
+    path('', include('base.urls')),
+    path('dummy/', dummy),
 ]
